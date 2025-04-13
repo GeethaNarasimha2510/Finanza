@@ -27,7 +27,7 @@ pipeline {
  
         stage('Deploy on App Server') {
             steps {
-                sshagent(credentials: ['app-server-key']) {
+                sshagent(credentials: ['app-server-ssh']) {
                     sh '''
                         ssh -o StrictHostKeyChecking=no $APP_SERVER "
                             sudo docker pull $DOCKER_IMAGE &&
