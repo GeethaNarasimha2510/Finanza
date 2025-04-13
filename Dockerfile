@@ -1,12 +1,12 @@
-# Use an official Node.js runtime as a base image
-FROM node:14
-# Set the working directory in the container
-WORKDIR /usr/src/app
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-# Install app dependencies
-RUN npm install
-# Copy the rest of the application code
-COPY . .
-# Expose port 3000
-EXPOSE 3000
+# Use the official NGINX image from Docker Hub
+FROM nginx:latest
+
+# Copy the static website files to the NGINX web directory
+# Assuming your HTML files are in a folder named 'website'
+COPY . /usr/share/nginx/html/
+
+# Expose port 80 to access the website outside the container
+EXPOSE 80
+
+# The default command in the NGINX image is already set to run NGINX in the foreground
+# No need to add additional command
