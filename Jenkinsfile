@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = 'geethanarasimha/finanza_app:v1.0'
-        APP_SERVER = 'ec2-user@34.233.120.123'
+        APP_SERVER = 'ec2-user@52.91.216.253'
     }
  
     stages {
